@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: hanyu-tts
+    runtime: python
+    plan: free
+    pythonVersion: "3.11"
+    buildCommand: pip install -r requirements.txt
+    startCommand: python tts_server.py
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
